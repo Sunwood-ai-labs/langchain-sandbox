@@ -38,12 +38,12 @@ license: mit
 
 ## 🚀 Project Overview
 
-langchain-sandbox is a sandbox project providing example implementations of various LangChain features, especially those utilizing Runnables for AI processing systems. This repository serves as an educational resource for learning practical development patterns and best practices using LangChain.  The v0.1.0 release includes an updated README.md, the addition of a project logo image (`docs/langchain-sandbox.png`), and the creation of `logger_setup.py` for more visually appealing and colorful log output.
+langchain-sandbox is a sandbox project providing implementation examples of various LangChain functionalities, particularly those utilizing Runnables for AI processing systems. This repository serves as an educational resource for learning practical development patterns and best practices using LangChain.  The v0.1.0 release includes an updated README.md, the addition of a project logo image (`docs/langchain-sandbox.png`), and the creation of `logger_setup.py` for improved and more colorful log output.
 
 ## 🌟 Objectives
 
-- 📚 Provide practical examples of LangChain's Runnable system.
-- 🔄 Introduce implementation patterns with increasing complexity.
+- 📚 Provide practical usage examples of LangChain's Runnable system.
+- 🔄 Introduce implementation patterns with progressively increasing complexity.
 - 🎓 Establish a foundation for practical AI application development.
 
 ## 📂 Project Structure
@@ -77,7 +77,7 @@ langchain-sandbox is a sandbox project providing example implementations of vari
 
 ### 🚀 Advanced Runnable Features:
    - Basic parallel processing (`sandbox/runnable/advanced/01_basic_parallel.py`)
-   - Chain with custom transformation functions (`sandbox/runnable/advanced/02_transform_chain.py`)
+   - Chain with custom transformation functionality (`sandbox/runnable/advanced/02_transform_chain.py`)
    - Complex parallel processing (`sandbox/runnable/advanced/03_complex_parallel.py`)
 
 ### 🛠️ Supporting Features:
@@ -95,13 +95,23 @@ langchain-sandbox is a sandbox project providing example implementations of vari
 
 2. Create and activate a virtual environment:
    ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # Linux/macOS
+   # Using uv:
+   uv venv
    .venv\Scripts\activate    # Windows
+   source .venv/bin/activate  # Linux/macOS
+
+   # Using python:
+   python -m venv .venv
+   .venv\Scripts\activate    # Windows
+   source .venv/bin/activate  # Linux/macOS
    ```
 
 3. Install dependencies:
    ```bash
+   # Using uv:
+   uv pip install -r requirements.txt
+
+   # Using pip:
    pip install -r requirements.txt
    ```
 
@@ -113,7 +123,7 @@ To run the Streamlit application, execute the following command with the virtual
 streamlit run app.py
 ```
 
-To run individual Python files, execute them with the virtual environment activated, specifying the path to the relevant file. Example:
+To run individual Python files, execute them with the virtual environment activated, specifying the path to the file. Example:
 
 ```bash
 python sandbox/runnable/basic/01_simple_transform.py
@@ -123,7 +133,6 @@ python sandbox/runnable/basic/01_simple_transform.py
 ## 🔄 Example Processing Flow
 
 ```mermaid
-
 graph TB
     Input[Input Text] --> Basic[Basic Runnable Processing]
     
