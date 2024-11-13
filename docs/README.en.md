@@ -1,19 +1,8 @@
----
-title: langchain-sandbox
-emoji: 🔗
-colorFrom: blue
-colorTo: indigo
-sdk: streamlit
-sdk_version: 1.39.0
-app_file: app.py
-pinned: false
-license: mit
----
-
+# 🔗 langchain-sandbox
 
 <p align="center">
   <img src="docs/langchain-sandbox.png" width="100%">
-  <h1 align="center">🔗 langchain-sandbox v0.1.0</h1>
+  <h1 align="center">🔗 langchain-sandbox</h1>
 </p>
 
 <p align="center">
@@ -36,56 +25,121 @@ license: mit
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit" alt="Streamlit">
 </p>
 
-## 🚀 Project Overview
+## 🎯 Project Overview
 
-langchain-sandbox is a sandbox project providing implementation examples of various LangChain functionalities, particularly those utilizing Runnables for AI processing systems. This repository serves as an educational resource for learning practical development patterns and best practices using LangChain.  The v0.1.0 release includes an updated README.md, the addition of a project logo image (`docs/langchain-sandbox.png`), and the creation of `logger_setup.py` for improved and more colorful log output.
+langchain-sandbox is a sandbox project providing implementation examples of various LangChain features, particularly those utilizing Runnables, for AI processing systems.  It serves as an educational resource enabling gradual learning, from basic usage to advanced implementations.
 
-## 🌟 Objectives
+## 🌟 Features and Purpose
 
-- 📚 Provide practical usage examples of LangChain's Runnable system.
-- 🔄 Introduce implementation patterns with progressively increasing complexity.
-- 🎓 Establish a foundation for practical AI application development.
+- 📚 Tutorial structure allowing for step-by-step learning
+- 🔄 Practical implementation patterns from basic to advanced levels
+- 🎓 Detailed explanations and best practices
+- 🛠️ Reusable component design
+- 📊 Visual explanations of processing flows
 
 ## 📂 Project Structure
 
 ```plaintext
 ├─ sandbox/
-│  ├─ runnable/                  # Langchain Runnable implementations
-│  │  ├─ advanced/              # Advanced usage examples
-│  │  │  ├─ 01_basic_parallel.py    # Basic parallel processing
-│  │  │  ├─ 02_transform_chain.py   # Transform chain
-│  │  │  ├─ 03_complex_parallel.py  # Complex parallel processing
-│  │  ├─ basic/                 # Basic usage examples
-│  │  │  ├─ 01_simple_transform.py  # Simple transformation
-│  │  │  ├─ 02_passthrough_chain.py # Passthrough chain
-│  │  │  ├─ 03_combined_chain.py    # Combined chain
-│  │  │  ├─ 04_nested_chain.py      # Nested chain
-│  │  │  ├─ logger_setup.py         # Logging configuration
-├─ app.py                        # Streamlit application
-├─ issue_creator.log              # (Empty file)
-├─ requirements.txt              # Dependencies
-├─ README.md                      # This file
+│  ├─ runnable/                      # Langchain Runnable implementations
+│  │  ├─ advanced/                   # Advanced usage examples
+│  │  │  ├─ 01_basic_parallel.py        # Basic parallel processing
+│  │  │  ├─ 02_enhanced_parallel.py     # Enhanced parallel chain
+│  │  │  ├─ logger_setup.py             # Logging configuration
+│  │  │  └─ README.md                   # Explanation of advanced implementations
+│  │  │
+│  │  ├─ basic/                     # Basic usage examples
+│  │  │  ├─ 01_simple_transform.py     # Simple transformation process
+│  │  │  ├─ 02_passthrough_chain.py    # Passthrough chain
+│  │  │  ├─ 03_combined_chain.py       # Combined chain
+│  │  │  ├─ 04_nested_chain.py         # Nested chain
+│  │  │  ├─ logger_setup.py            # Logging configuration
+│  │  │  └─ README.md                  # Explanation of basic implementations
+│  │  │
+├─ app.py                           # Streamlit application
+└─ requirements.txt                 # Dependencies
 ```
 
-## ✨ Main Features
+## 🚀 Implemented Features
 
-### 🔰 Basic Runnable Features:
-   - Simple transformation processing (`sandbox/runnable/basic/01_simple_transform.py`)
-   - Passthrough chain (`sandbox/runnable/basic/02_passthrough_chain.py`)
-   - Combined chain (`sandbox/runnable/basic/03_combined_chain.py`)
-   - Nested chain (`sandbox/runnable/basic/04_nested_chain.py`)
+### 🔰 Basic Runnable Features
 
-### 🚀 Advanced Runnable Features:
-   - Basic parallel processing (`sandbox/runnable/advanced/01_basic_parallel.py`)
-   - Chain with custom transformation functionality (`sandbox/runnable/advanced/02_transform_chain.py`)
-   - Complex parallel processing (`sandbox/runnable/advanced/03_complex_parallel.py`)
+```mermaid
+graph TB
+    Input[Input Data] --> SimpleTransform[Simple Transformation<br/>RunnableLambda]
+    SimpleTransform --> Passthrough[Passthrough Chain<br/>RunnablePassthrough]
+    Passthrough --> Combined[Combined Chain<br/>Multiple Runnables]
+    Combined --> Nested[Nested Chain]
+    Nested --> Output[Output Result]
 
-### 🛠️ Supporting Features:
-   - Detailed logging system (`sandbox/runnable/basic/logger_setup.py`)
-   - Streamlit-based demo interface (`app.py`)
+    style Input fill:#f9f,stroke:#333,stroke-width:2px
+    style Output fill:#9ff,stroke:#333,stroke-width:2px
+    style SimpleTransform fill:#ff9,stroke:#333,stroke-width:2px
+    style Passthrough fill:#ff9,stroke:#333,stroke-width:2px
+    style Combined fill:#f9f,stroke:#333,stroke-width:2px
+```
 
+1. **Simple Transformation** (`01_simple_transform.py`)
+   - Basic usage of RunnableLambda
+   - Implementation of text analysis
+   - Basic error handling
 
-## 🔧 Installation Instructions
+2. **Passthrough Chain** (`02_passthrough_chain.py`)
+   - Utilization of RunnablePassthrough
+   - Data transfer control
+   - Visualization through log output
+
+3. **Combined Chain** (`03_combined_chain.py`)
+   - Combination of multiple Runnables
+   - Implementation of step-by-step processing
+   - Optimization of flow control
+
+4. **Nested Chain** (`04_nested_chain.py`)
+   - Construction of complex chain structures
+   - How to utilize intermediate results
+   - Advanced error handling
+
+### 🚀 Advanced Runnable Features
+
+```mermaid
+graph TB
+    Input[Input Data] --> Parallel[Parallel Processing<br/>RunnableParallel]
+
+    subgraph "Parallel Processing Flow"
+        Parallel --> Chain1[Chain 1]
+        Parallel --> Chain2[Chain 2]
+        Parallel --> Chain3[Chain 3]
+
+        Chain1 --> Results1[Result 1]
+        Chain2 --> Results2[Result 2]
+        Chain3 --> Results3[Result 3]
+    end
+
+    Results1 --> Summary[Result Aggregation]
+    Results2 --> Summary
+    Results3 --> Summary
+
+    Summary --> Output[Final Output]
+
+    style Input fill:#f9f,stroke:#333,stroke-width:2px
+    style Output fill:#9ff,stroke:#333,stroke-width:2px
+    style Parallel fill:#ff9,stroke:#333,stroke-width:2px
+    style Summary fill:#ddf,stroke:#333,stroke-width:2px
+```
+
+1. **Basic Parallel Processing** (`01_basic_parallel.py`)
+   - Utilization of RunnableParallel
+   - Efficiency improvement of parallel processing
+   - Debug callback
+
+2. **Enhanced Parallel Chains** (`02_enhanced_parallel_chains.py`)
+   - Implementation of complex parallel processing
+   - Selective use of results
+   - Advanced chain management
+
+## 🔧 Setup and Execution
+
+### Environment Setup
 
 1. Clone the repository:
    ```bash
@@ -115,64 +169,68 @@ langchain-sandbox is a sandbox project providing implementation examples of vari
    pip install -r requirements.txt
    ```
 
-### How to Run
+### Execution Examples
 
-To run the Streamlit application, execute the following command with the virtual environment activated:
-
+#### Running Basic Examples:
 ```bash
-streamlit run app.py
-```
-
-To run individual Python files, execute them with the virtual environment activated, specifying the path to the file. Example:
-
-```bash
+# Simple transformation example
 python sandbox/runnable/basic/01_simple_transform.py
+
+# Passthrough chain example
+python sandbox/runnable/basic/02_passthrough_chain.py
 ```
 
+#### Running Advanced Examples:
+```bash
+# Parallel processing example
+python sandbox/runnable/advanced/01_basic_parallel.py
 
-## 🔄 Example Processing Flow
-
-```mermaid
-graph TB
-    Input[Input Text] --> Basic[Basic Runnable Processing]
-    
-    subgraph "Basic Runnable Processing"
-        Transform[Text Transformation<br/>RunnableLambda]
-        Passthrough[Passthrough Processing<br/>RunnablePassthrough]
-        Transform --> Passthrough
-    end
-    
-    Basic --> Advanced[Advanced Runnable Processing]
-    
-    subgraph "Advanced Runnable Processing"
-        Parallel[Parallel Processing<br/>RunnableParallel]
-        Chain[Chain Processing<br/>Combined Chain]
-        Nested[Nested Processing<br/>Nested Chain]
-        
-        Parallel --> Chain
-        Chain --> Nested
-    end
-    
-    Advanced --> Output[Processed Result]
-    
-    style Input fill:#f9f,stroke:#333,stroke-width:2px
-    style Output fill:#9ff,stroke:#333,stroke-width:2px
-    style Transform fill:#ff9,stroke:#333,stroke-width:2px
-    style Passthrough fill:#ff9,stroke:#333,stroke-width:2px
-    style Parallel fill:#f9f,stroke:#333,stroke-width:2px
-    style Chain fill:#f9f,stroke:#333,stroke-width:2px
-    style Nested fill:#f9f,stroke:#333,stroke-width:2px
+# Enhanced parallel chain example
+python sandbox/runnable/advanced/02_enhanced_parallel_chains.py
 ```
 
-## 📚 Learning Resources
+## 📚 Key Concepts
 
-Each implementation example includes detailed documentation and comments, allowing you to learn about the following concepts:
+### Basic Runnable Patterns
+```python
+# Simple transformation
+transform = RunnableLambda(text_analyzer)
 
-- Basic usage of RunnableLambda
-- Building and combining chains
-- Implementing parallel processing
-- Error handling and logging
-- Design patterns for complex chains
+# Passthrough chain
+chain = RunnableLambda(transform) | prompt | model | parser
+
+# Combined chain
+chain = (
+    RunnableLambda(step1)
+    | RunnableLambda(step2)
+    | final_step
+)
+```
+
+### Advanced Runnable Patterns
+```python
+# Parallel processing
+chain = RunnableParallel(
+    description=description_prompt | model | parser,
+    analysis=analysis_prompt | model | parser
+)
+
+# Debug callback
+class DebugCallbackHandler(BaseCallbackHandler):
+    def on_llm_start(self, serialized, prompts, **kwargs):
+        logger.debug(f"LLM start: {prompts}")
+```
+
+## 🎓 Learning Resources
+
+Each implementation includes detailed explanations and comments, allowing you to learn the following concepts:
+
+- Basic usage of Runnables
+- Chain construction and combination
+- Implementation techniques for parallel processing
+- Error handling and debugging techniques
+- Performance optimization
+- Code structuring and reusability
 
 ## 🤝 Contributions
 
