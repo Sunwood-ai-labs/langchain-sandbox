@@ -1,19 +1,8 @@
----
-title: langchain-sandbox
-emoji: 🔗
-colorFrom: blue
-colorTo: indigo
-sdk: streamlit
-sdk_version: 1.39.0
-app_file: app.py
-pinned: false
-license: mit
----
-
+# 🔗 langchain-sandbox
 
 <p align="center">
   <img src="docs/langchain-sandbox.png" width="100%">
-  <h1 align="center">🔗 langchain-sandbox v0.1.0</h1>
+  <h1 align="center">🔗 langchain-sandbox</h1>
 </p>
 
 <p align="center">
@@ -36,56 +25,121 @@ license: mit
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit" alt="Streamlit">
 </p>
 
-## 🚀 プロジェクト概要
+## 🎯 プロジェクト概要
 
-langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用したAI処理システムの実装例を提供するサンドボックスプロジェクトです。このリポジトリは、LangChainを使用した実践的な開発パターンとベストプラクティスを学ぶための教育リソースとして機能します。  v0.1.0リリースでは、README.md の更新、プロジェクトロゴ画像の追加(`docs/langchain-sandbox.png`)、そしてログ出力をより見やすくカラフルにする`logger_setup.py`の作成を行いました。
+langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用したAI処理システムの実装例を提供するサンドボックスプロジェクトです。基本的な使用例から高度な実装まで、段階的に学習できる教育リソースとして機能します。
 
-## 🌟 目的
+## 🌟 特徴と目的
 
-- 📚 LangChainのRunnableシステムの実践的な使用例の提供
-- 🔄 段階的に複雑さを増す実装パターンの紹介
-- 🎓 実用的なAIアプリケーション開発の基礎の確立
+- 📚 段階的な学習が可能なチュートリアル構成
+- 🔄 基本から応用までの実践的な実装パターン
+- 🎓 詳細な説明とベストプラクティスの提供
+- 🛠️ 再利用可能なコンポーネント設計
+- 📊 視覚的な処理フローの説明
 
 ## 📂 プロジェクト構造
 
 ```plaintext
 ├─ sandbox/
-│  ├─ runnable/                  # Langchain Runnable実装
-│  │  ├─ advanced/              # 高度な使用例
-│  │  │  ├─ 01_basic_parallel.py    # 基本的な並列処理
-│  │  │  ├─ 02_transform_chain.py   # 変換チェーン
-│  │  │  ├─ 03_complex_parallel.py  # 複雑な並列処理
-│  │  ├─ basic/                 # 基本的な使用例
-│  │  │  ├─ 01_simple_transform.py  # シンプルな変換
-│  │  │  ├─ 02_passthrough_chain.py # パススルーチェーン
-│  │  │  ├─ 03_combined_chain.py    # 結合チェーン
-│  │  │  ├─ 04_nested_chain.py      # ネストされたチェーン
-│  │  │  ├─ logger_setup.py         # ロギング設定
-├─ app.py                        # Streamlitアプリケーション
-├─ issue_creator.log              # (空ファイル)
-├─ requirements.txt              # 依存関係
-├─ README.md                      # このファイル
+│  ├─ runnable/                      # Langchain Runnable実装
+│  │  ├─ advanced/                   # 高度な使用例
+│  │  │  ├─ 01_basic_parallel.py        # 基本的な並列処理
+│  │  │  ├─ 02_enhanced_parallel.py     # 拡張された並列チェーン
+│  │  │  ├─ logger_setup.py             # ロギング設定
+│  │  │  └─ README.md                   # 高度な実装の説明
+│  │  │
+│  │  ├─ basic/                     # 基本的な使用例
+│  │  │  ├─ 01_simple_transform.py     # シンプルな変換処理
+│  │  │  ├─ 02_passthrough_chain.py    # パススルーチェーン
+│  │  │  ├─ 03_combined_chain.py       # 結合チェーン
+│  │  │  ├─ 04_nested_chain.py         # ネストされたチェーン
+│  │  │  ├─ logger_setup.py            # ロギング設定
+│  │  │  └─ README.md                  # 基本実装の説明
+│  │  │
+├─ app.py                           # Streamlitアプリケーション
+└─ requirements.txt                 # 依存関係
 ```
 
-## ✨ 主な機能
+## 🚀 実装された機能
 
-### 🔰 基本的なRunnable機能:
-   - シンプルな変換処理 (`sandbox/runnable/basic/01_simple_transform.py`)
-   - パススルーチェーン (`sandbox/runnable/basic/02_passthrough_chain.py`)
-   - 結合チェーン (`sandbox/runnable/basic/03_combined_chain.py`)
-   - ネストされたチェーン (`sandbox/runnable/basic/04_nested_chain.py`)
+### 🔰 基本的なRunnable機能
 
-### 🚀 高度なRunnable機能:
-   - 基本的な並列処理 (`sandbox/runnable/advanced/01_basic_parallel.py`)
-   - カスタム変換機能を含むチェーン (`sandbox/runnable/advanced/02_transform_chain.py`)
-   - 複雑な並列処理 (`sandbox/runnable/advanced/03_complex_parallel.py`)
+```mermaid
+graph TB
+    Input[入力データ] --> SimpleTransform[シンプルな変換処理<br/>RunnableLambda]
+    SimpleTransform --> Passthrough[パススルーチェーン<br/>RunnablePassthrough]
+    Passthrough --> Combined[結合チェーン<br/>Multiple Runnables]
+    Combined --> Nested[ネストされたチェーン]
+    Nested --> Output[出力結果]
+    
+    style Input fill:#f9f,stroke:#333,stroke-width:2px
+    style Output fill:#9ff,stroke:#333,stroke-width:2px
+    style SimpleTransform fill:#ff9,stroke:#333,stroke-width:2px
+    style Passthrough fill:#ff9,stroke:#333,stroke-width:2px
+    style Combined fill:#f9f,stroke:#333,stroke-width:2px
+```
 
-### 🛠️ 補助機能:
-   - 詳細なロギングシステム (`sandbox/runnable/basic/logger_setup.py`)
-   - Streamlitベースのデモインターフェース (`app.py`)
+1. **シンプルな変換処理** (`01_simple_transform.py`)
+   - RunnableLambdaの基本的な使用
+   - テキスト分析の実装
+   - エラーハンドリングの基礎
 
+2. **パススルーチェーン** (`02_passthrough_chain.py`)
+   - RunnablePassthroughの活用
+   - データの受け渡し制御
+   - ログ出力による可視化
 
-## 🔧 インストール手順
+3. **結合チェーン** (`03_combined_chain.py`)
+   - 複数のRunnableの組み合わせ
+   - 段階的な処理の実装
+   - フロー制御の最適化
+
+4. **ネストされたチェーン** (`04_nested_chain.py`)
+   - 複雑なチェーン構造の構築
+   - 中間結果の活用方法
+   - 高度なエラーハンドリング
+
+### 🚀 高度なRunnable機能
+
+```mermaid
+graph TB
+    Input[入力データ] --> Parallel[並列処理<br/>RunnableParallel]
+    
+    subgraph "並列処理フロー"
+        Parallel --> Chain1[チェーン1]
+        Parallel --> Chain2[チェーン2]
+        Parallel --> Chain3[チェーン3]
+        
+        Chain1 --> Results1[結果1]
+        Chain2 --> Results2[結果2]
+        Chain3 --> Results3[結果3]
+    end
+    
+    Results1 --> Summary[結果の集約]
+    Results2 --> Summary
+    Results3 --> Summary
+    
+    Summary --> Output[最終出力]
+    
+    style Input fill:#f9f,stroke:#333,stroke-width:2px
+    style Output fill:#9ff,stroke:#333,stroke-width:2px
+    style Parallel fill:#ff9,stroke:#333,stroke-width:2px
+    style Summary fill:#ddf,stroke:#333,stroke-width:2px
+```
+
+1. **基本的な並列処理** (`01_basic_parallel.py`)
+   - RunnableParallelの活用
+   - 並列処理の効率化
+   - デバッグ用コールバック
+
+2. **拡張並列チェーン** (`02_enhanced_parallel_chains.py`)
+   - 複雑な並列処理の実装
+   - 結果の選択的利用
+   - 高度なチェーン管理
+
+## 🔧 セットアップと実行
+
+### 環境のセットアップ
 
 1. リポジトリのクローン:
    ```bash
@@ -115,64 +169,68 @@ langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用し�
    pip install -r requirements.txt
    ```
 
-### 実行方法
+### 実行例
 
-Streamlit アプリケーションを実行するには、仮想環境を有効にした状態で以下のコマンドを実行します。
-
+#### 基本的な例の実行:
 ```bash
-streamlit run app.py
-```
-
-個々のPythonファイルを実行するには、仮想環境を有効にした状態で、該当するファイルへのパスを指定して実行します。例:
-
-```bash
+# シンプルな変換の例
 python sandbox/runnable/basic/01_simple_transform.py
+
+# パススルーチェーンの例
+python sandbox/runnable/basic/02_passthrough_chain.py
 ```
 
+#### 高度な例の実行:
+```bash
+# 並列処理の例
+python sandbox/runnable/advanced/01_basic_parallel.py
 
-## 🔄 処理フロー例
-
-```mermaid
-graph TB
-    Input[入力テキスト] --> Basic[基本的なRunnable処理]
-    
-    subgraph "基本的なRunnable処理"
-        Transform[テキスト変換<br/>RunnableLambda]
-        Passthrough[パススルー処理<br/>RunnablePassthrough]
-        Transform --> Passthrough
-    end
-    
-    Basic --> Advanced[高度なRunnable処理]
-    
-    subgraph "高度なRunnable処理"
-        Parallel[並列処理<br/>RunnableParallel]
-        Chain[チェーン処理<br/>Combined Chain]
-        Nested[ネストされた処理<br/>Nested Chain]
-        
-        Parallel --> Chain
-        Chain --> Nested
-    end
-    
-    Advanced --> Output[処理結果]
-    
-    style Input fill:#f9f,stroke:#333,stroke-width:2px
-    style Output fill:#9ff,stroke:#333,stroke-width:2px
-    style Transform fill:#ff9,stroke:#333,stroke-width:2px
-    style Passthrough fill:#ff9,stroke:#333,stroke-width:2px
-    style Parallel fill:#f9f,stroke:#333,stroke-width:2px
-    style Chain fill:#f9f,stroke:#333,stroke-width:2px
-    style Nested fill:#f9f,stroke:#333,stroke-width:2px
+# 拡張並列チェーンの例
+python sandbox/runnable/advanced/02_enhanced_parallel_chains.py
 ```
 
-## 📚 学習リソース
+## 📚 主要コンセプト
 
-各実装例には詳細なドキュメントとコメントが含まれており、以下の概念を学ぶことができます：
+### 基本的なRunnableパターン
+```python
+# シンプルな変換
+transform = RunnableLambda(text_analyzer)
 
-- RunnableLambdaの基本的な使用方法
-- チェーンの構築と組み合わせ
-- 並列処理の実装
-- エラーハンドリングとロギング
-- 複雑なチェーンの設計パターン
+# パススルーチェーン
+chain = RunnableLambda(transform) | prompt | model | parser
+
+# 結合チェーン
+chain = (
+    RunnableLambda(step1)
+    | RunnableLambda(step2)
+    | final_step
+)
+```
+
+### 高度なRunnableパターン
+```python
+# 並列処理
+chain = RunnableParallel(
+    description=description_prompt | model | parser,
+    analysis=analysis_prompt | model | parser
+)
+
+# デバッグコールバック
+class DebugCallbackHandler(BaseCallbackHandler):
+    def on_llm_start(self, serialized, prompts, **kwargs):
+        logger.debug(f"LLM開始: {prompts}")
+```
+
+## 🎓 学習リソース
+
+各実装には詳細な説明とコメントが含まれており、以下の概念を学ぶことができます：
+
+- Runnableの基本的な使用方法
+- チェーンの構築と組み合わせ方
+- 並列処理の実装テクニック
+- エラーハンドリングとデバッグ手法
+- パフォーマンスの最適化
+- コードの構造化と再利用性
 
 ## 🤝 コントリビューション
 
