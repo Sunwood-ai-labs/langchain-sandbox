@@ -13,7 +13,7 @@ license: mit
 
 <p align="center">
   <img src="docs/langchain-sandbox.png" width="100%">
-  <h1 align="center">🔗 langchain-sandbox</h1>
+  <h1 align="center">🔗 langchain-sandbox v0.1.0</h1>
 </p>
 
 <p align="center">
@@ -36,9 +36,9 @@ license: mit
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit" alt="Streamlit">
 </p>
 
-## 🎯 プロジェクト概要
+## 🚀 プロジェクト概要
 
-langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用したAI処理システムの実装例を提供するサンドボックスプロジェクトです。このリポジトリは、LangChainを使用した実践的な開発パターンとベストプラクティスを学ぶための教育リソースとして機能します。
+langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用したAI処理システムの実装例を提供するサンドボックスプロジェクトです。このリポジトリは、LangChainを使用した実践的な開発パターンとベストプラクティスを学ぶための教育リソースとして機能します。  v0.1.0リリースでは、README.md の更新、プロジェクトロゴ画像の追加(`docs/langchain-sandbox.png`)、そしてログ出力をより見やすくカラフルにする`logger_setup.py`の作成を行いました。
 
 ## 🌟 目的
 
@@ -62,29 +62,30 @@ langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用し�
 │  │  │  ├─ 04_nested_chain.py      # ネストされたチェーン
 │  │  │  ├─ logger_setup.py         # ロギング設定
 ├─ app.py                        # Streamlitアプリケーション
+├─ issue_creator.log              # (空ファイル)
 ├─ requirements.txt              # 依存関係
+├─ README.md                      # このファイル
 ```
 
-## ⚡ 実装された機能
+## ✨ 主な機能
 
 ### 🔰 基本的なRunnable機能:
-   - シンプルな変換処理 (`01_simple_transform.py`)
-   - パススルーチェーン (`02_passthrough_chain.py`)
-   - 結合チェーン (`03_combined_chain.py`)
-   - ネストされたチェーン (`04_nested_chain.py`)
+   - シンプルな変換処理 (`sandbox/runnable/basic/01_simple_transform.py`)
+   - パススルーチェーン (`sandbox/runnable/basic/02_passthrough_chain.py`)
+   - 結合チェーン (`sandbox/runnable/basic/03_combined_chain.py`)
+   - ネストされたチェーン (`sandbox/runnable/basic/04_nested_chain.py`)
 
 ### 🚀 高度なRunnable機能:
-   - 基本的な並列処理 (`01_basic_parallel.py`)
-   - 変換チェーン (`02_transform_chain.py`)
-   - 複雑な並列処理 (`03_complex_parallel.py`)
+   - 基本的な並列処理 (`sandbox/runnable/advanced/01_basic_parallel.py`)
+   - カスタム変換機能を含むチェーン (`sandbox/runnable/advanced/02_transform_chain.py`)
+   - 複雑な並列処理 (`sandbox/runnable/advanced/03_complex_parallel.py`)
 
 ### 🛠️ 補助機能:
-   - 詳細なロギングシステム
-   - Streamlitベースのデモインターフェース
+   - 詳細なロギングシステム (`sandbox/runnable/basic/logger_setup.py`)
+   - Streamlitベースのデモインターフェース (`app.py`)
 
-## 🔧 セットアップと実行
 
-### 環境のセットアップ
+## 🔧 インストール手順
 
 1. リポジトリのクローン:
    ```bash
@@ -106,23 +107,18 @@ langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用し�
 
 ### 実行方法
 
-#### 基本的な例の実行:
+Streamlit アプリケーションを実行するには、仮想環境を有効にした状態で以下のコマンドを実行します。
+
 ```bash
-# シンプルな変換の例
+streamlit run app.py
+```
+
+個々のPythonファイルを実行するには、仮想環境を有効にした状態で、該当するファイルへのパスを指定して実行します。例:
+
+```bash
 python sandbox/runnable/basic/01_simple_transform.py
-
-# パススルーチェーンの例
-python sandbox/runnable/basic/02_passthrough_chain.py
 ```
 
-#### 高度な例の実行:
-```bash
-# 並列処理の例
-python sandbox/runnable/advanced/01_basic_parallel.py
-
-# 複雑な並列処理の例
-python sandbox/runnable/advanced/03_complex_parallel.py
-```
 
 ## 🔄 処理フロー例
 
