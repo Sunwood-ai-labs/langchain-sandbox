@@ -7,6 +7,11 @@ RunnableLambdaを使用することで、関数をLangchainのパイプライン
 
 from typing import Dict, Any
 from langchain_core.runnables import RunnableLambda
+from logger_setup import setup_logger, print_tutorial_header
+import os
+
+# ロガーのセットアップ
+logger = setup_logger()
 
 def create_simple_transform() -> RunnableLambda:
     """
@@ -42,3 +47,26 @@ def create_simple_transform() -> RunnableLambda:
         }
     
     return RunnableLambda(text_analyzer)
+
+def main():
+    """
+    モジュールのメイン関数
+    RunnableLambdaの基本的な使用例を実演します。
+    """
+    # ファイル名を表示
+    print_tutorial_header(os.path.basename(__file__))
+    
+    logger.info("RunnableLambdaの基本的な使用例を実演します")
+    
+    # RunnableLambdaの作成
+    transform = create_simple_transform()
+    
+    # テスト用のテキスト
+    test_text = "Langchainは素晴らしいツールですか?"
+    
+    # 実行と結果の表示
+    result = transform.invoke(test_text)
+    logger.success(f"分析結果:\n{result}")
+
+if __name__ == "__main__":
+    main()
