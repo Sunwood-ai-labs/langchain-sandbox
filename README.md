@@ -36,17 +36,17 @@ license: mit
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit" alt="Streamlit">
 </p>
 
-## 🚀 プロジェクト概要
+## 🎯 プロジェクト概要
 
 langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用したAI処理システムの実装例を提供するサンドボックスプロジェクトです。このリポジトリは、LangChainを使用した実践的な開発パターンとベストプラクティスを学ぶための教育リソースとして機能します。
 
-## 🎯 目的
+## 🌟 目的
 
-- LangChainのRunnableシステムの実践的な使用例の提供
-- 段階的に複雑さを増す実装パターンの紹介
-- 実用的なAIアプリケーション開発の基礎の確立
+- 📚 LangChainのRunnableシステムの実践的な使用例の提供
+- 🔄 段階的に複雑さを増す実装パターンの紹介
+- 🎓 実用的なAIアプリケーション開発の基礎の確立
 
-## 📦 プロジェクト構造
+## 📂 プロジェクト構造
 
 ```plaintext
 ├─ sandbox/
@@ -65,20 +65,20 @@ langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用し�
 ├─ requirements.txt              # 依存関係
 ```
 
-## ✨ 実装された機能
+## ⚡ 実装された機能
 
-1. **基本的なRunnable機能**:
+### 🔰 基本的なRunnable機能:
    - シンプルな変換処理 (`01_simple_transform.py`)
    - パススルーチェーン (`02_passthrough_chain.py`)
    - 結合チェーン (`03_combined_chain.py`)
    - ネストされたチェーン (`04_nested_chain.py`)
 
-2. **高度なRunnable機能**:
+### 🚀 高度なRunnable機能:
    - 基本的な並列処理 (`01_basic_parallel.py`)
    - 変換チェーン (`02_transform_chain.py`)
    - 複雑な並列処理 (`03_complex_parallel.py`)
 
-3. **補助機能**:
+### 🛠️ 補助機能:
    - 詳細なロギングシステム
    - Streamlitベースのデモインターフェース
 
@@ -127,22 +127,36 @@ python sandbox/runnable/advanced/03_complex_parallel.py
 ## 🔄 処理フロー例
 
 ```mermaid
-%%{init:{'theme':'base','themeVariables':{'primaryColor':'#024959','primaryTextColor':'#F2C335','primaryBorderColor':'#F2AE30','lineColor':'#A1A2A6','secondaryColor':'#593E25','tertiaryColor':'#F2C335'}}}%%
 
 graph TB
-    A[入力] --> B[基本処理]
-    B --> C[チェーン処理]
+    Input[入力テキスト] --> Basic[基本的なRunnable処理]
     
-    subgraph "基本処理"
-    B1[テキスト変換] --> B2[データ加工]
+    subgraph "基本的なRunnable処理"
+        Transform[テキスト変換<br/>RunnableLambda]
+        Passthrough[パススルー処理<br/>RunnablePassthrough]
+        Transform --> Passthrough
     end
     
-    subgraph "チェーン処理"
-    C1[シーケンシャル実行] --> C2[並列実行]
-    C2 --> C3[結果統合]
+    Basic --> Advanced[高度なRunnable処理]
+    
+    subgraph "高度なRunnable処理"
+        Parallel[並列処理<br/>RunnableParallel]
+        Chain[チェーン処理<br/>Combined Chain]
+        Nested[ネストされた処理<br/>Nested Chain]
+        
+        Parallel --> Chain
+        Chain --> Nested
     end
     
-    C --> D[出力]
+    Advanced --> Output[処理結果]
+    
+    style Input fill:#f9f,stroke:#333,stroke-width:2px
+    style Output fill:#9ff,stroke:#333,stroke-width:2px
+    style Transform fill:#ff9,stroke:#333,stroke-width:2px
+    style Passthrough fill:#ff9,stroke:#333,stroke-width:2px
+    style Parallel fill:#f9f,stroke:#333,stroke-width:2px
+    style Chain fill:#f9f,stroke:#333,stroke-width:2px
+    style Nested fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
 ## 📚 学習リソース
@@ -157,7 +171,7 @@ graph TB
 
 ## 🤝 コントリビューション
 
-プルリクエストや課題の報告は大歓迎です。以下の手順で貢献できます：
+プルリクエストや課題の報告は大歓迎です！以下の手順で貢献できます：
 
 1. このリポジトリをフォーク
 2. 新しいブランチを作成 (`git checkout -b feature/amazing-feature`)
