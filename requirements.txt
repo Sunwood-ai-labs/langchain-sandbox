@@ -1,2 +1,7 @@
 aira
 sourcesage
+loguru
+
+langchain
+langchain-openai
+python-dotenv
