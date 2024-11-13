@@ -13,7 +13,7 @@ license: mit
 
 <p align="center">
   <img src="docs/langchain-sandbox.png" width="100%">
-  <h1 align="center">🔗 langchain-sandbox</h1>
+  <h1 align="center">🔗 langchain-sandbox v0.1.0</h1>
 </p>
 
 <p align="center">
@@ -36,15 +36,15 @@ license: mit
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit" alt="Streamlit">
 </p>
 
-## 🎯 Project Overview
+## 🚀 Project Overview
 
-langchain-sandbox is a sandbox project providing implementation examples of various LangChain features, particularly AI processing systems utilizing Runnables. This repository serves as an educational resource for learning practical development patterns and best practices using LangChain.
+langchain-sandbox is a sandbox project providing example implementations of various LangChain features, especially those utilizing Runnables for AI processing systems. This repository serves as an educational resource for learning practical development patterns and best practices using LangChain.  The v0.1.0 release includes an updated README.md, the addition of a project logo image (`docs/langchain-sandbox.png`), and the creation of `logger_setup.py` for more visually appealing and colorful log output.
 
 ## 🌟 Objectives
 
-- 📚 Provide practical usage examples of LangChain's Runnable system.
-- 🔄 Introduce implementation patterns with gradually increasing complexity.
-- 🎓 Establish the foundation for practical AI application development.
+- 📚 Provide practical examples of LangChain's Runnable system.
+- 🔄 Introduce implementation patterns with increasing complexity.
+- 🎓 Establish a foundation for practical AI application development.
 
 ## 📂 Project Structure
 
@@ -62,29 +62,30 @@ langchain-sandbox is a sandbox project providing implementation examples of vari
 │  │  │  ├─ 04_nested_chain.py      # Nested chain
 │  │  │  ├─ logger_setup.py         # Logging configuration
 ├─ app.py                        # Streamlit application
+├─ issue_creator.log              # (Empty file)
 ├─ requirements.txt              # Dependencies
+├─ README.md                      # This file
 ```
 
-## ⚡ Implemented Features
+## ✨ Main Features
 
 ### 🔰 Basic Runnable Features:
-   - Simple transformation (`01_simple_transform.py`)
-   - Passthrough chain (`02_passthrough_chain.py`)
-   - Combined chain (`03_combined_chain.py`)
-   - Nested chain (`04_nested_chain.py`)
+   - Simple transformation processing (`sandbox/runnable/basic/01_simple_transform.py`)
+   - Passthrough chain (`sandbox/runnable/basic/02_passthrough_chain.py`)
+   - Combined chain (`sandbox/runnable/basic/03_combined_chain.py`)
+   - Nested chain (`sandbox/runnable/basic/04_nested_chain.py`)
 
 ### 🚀 Advanced Runnable Features:
-   - Basic parallel processing (`01_basic_parallel.py`)
-   - Transform chain (`02_transform_chain.py`)
-   - Complex parallel processing (`03_complex_parallel.py`)
+   - Basic parallel processing (`sandbox/runnable/advanced/01_basic_parallel.py`)
+   - Chain with custom transformation functions (`sandbox/runnable/advanced/02_transform_chain.py`)
+   - Complex parallel processing (`sandbox/runnable/advanced/03_complex_parallel.py`)
 
-### 🛠️ Auxiliary Features:
-   - Detailed logging system
-   - Streamlit-based demo interface
+### 🛠️ Supporting Features:
+   - Detailed logging system (`sandbox/runnable/basic/logger_setup.py`)
+   - Streamlit-based demo interface (`app.py`)
 
-## 🔧 Setup and Execution
 
-### Environment Setup
+## 🔧 Installation Instructions
 
 1. Clone the repository:
    ```bash
@@ -104,25 +105,20 @@ langchain-sandbox is a sandbox project providing implementation examples of vari
    pip install -r requirements.txt
    ```
 
-### Execution
+### How to Run
 
-#### Running Basic Examples:
+To run the Streamlit application, execute the following command with the virtual environment activated:
+
 ```bash
-# Simple transformation example
+streamlit run app.py
+```
+
+To run individual Python files, execute them with the virtual environment activated, specifying the path to the relevant file. Example:
+
+```bash
 python sandbox/runnable/basic/01_simple_transform.py
-
-# Passthrough chain example
-python sandbox/runnable/basic/02_passthrough_chain.py
 ```
 
-#### Running Advanced Examples:
-```bash
-# Parallel processing example
-python sandbox/runnable/advanced/01_basic_parallel.py
-
-# Complex parallel processing example
-python sandbox/runnable/advanced/03_complex_parallel.py
-```
 
 ## 🔄 Example Processing Flow
 
@@ -148,7 +144,7 @@ graph TB
         Chain --> Nested
     end
     
-    Advanced --> Output[Processing Result]
+    Advanced --> Output[Processed Result]
     
     style Input fill:#f9f,stroke:#333,stroke-width:2px
     style Output fill:#9ff,stroke:#333,stroke-width:2px
