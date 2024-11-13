@@ -10,7 +10,11 @@ pinned: false
 license: mit
 ---
 
-<h1 align="center">🔗 langchain-sandbox</h1>
+
+<p align="center">
+  <img src="docs/langchain-sandbox.png" width="100%">
+  <h1 align="center">🔗 langchain-sandbox</h1>
+</p>
 
 <p align="center">
   <a href="https://github.com/Sunwood-ai-labs/langchain-sandbox">
