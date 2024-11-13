@@ -94,13 +94,23 @@ langchain-sandboxは、LangChainの様々な機能、特にRunnableを活用し�
 
 2. 仮想環境の作成と有効化:
    ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # Linux/macOS
+   # uvを使用する場合:
+   uv venv
    .venv\Scripts\activate    # Windows
+   source .venv/bin/activate  # Linux/macOS
+
+   # pythonを使用する場合:
+   python -m venv .venv
+   .venv\Scripts\activate    # Windows
+   source .venv/bin/activate  # Linux/macOS
    ```
 
 3. 依存関係のインストール:
    ```bash
+   # uvを使用する場合:
+   uv pip install -r requirements.txt
+
+   # pipを使用する場合:
    pip install -r requirements.txt
    ```
 
@@ -127,7 +137,6 @@ python sandbox/runnable/advanced/03_complex_parallel.py
 ## 🔄 処理フロー例
 
 ```mermaid
-
 graph TB
     Input[入力テキスト] --> Basic[基本的なRunnable処理]
     
